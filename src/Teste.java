@@ -1,3 +1,4 @@
+
 /**
  * FIXME Deletar esta classe
  */
@@ -7,6 +8,9 @@ public class Teste {
 		System.out.println("Desenvolvimento de Aplicações Concorrentes e Distribuídas");
 		System.out.println("Teste Tortoise");
 		System.out.println("Vocês estão tudo doidos");
+
+		// VeiculoAbstract veiculo = new Carro();
+
 	}
 
 }
