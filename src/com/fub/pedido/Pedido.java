@@ -1,14 +1,17 @@
 package com.fub.pedido;
 
+import java.util.Date;
 import java.util.List;
 
 import com.fub.endereco.Endereco;
-import com.fub.pedido.pessoa.PessoaAbstract;
+import com.fub.pedido.pessoa.ClienteAbstract;
 import com.fub.produto.Produto;
 
 public class Pedido {
 	private int codigo;
-	private PessoaAbstract pessoa;
+	private ClienteAbstract cliente;
+	private Date dataEntrada;
+	private Date dataEntrega;
 	private Endereco enderecoEntrega;
 	private List<Produto> listaProdutos;
 
@@ -20,12 +23,28 @@ public class Pedido {
 		this.codigo = codigo;
 	}
 
-	public PessoaAbstract getPessoa() {
-		return pessoa;
+	public ClienteAbstract getCliente() {
+		return cliente;
 	}
 
-	public void setPessoa(PessoaAbstract pessoa) {
-		this.pessoa = pessoa;
+	public void setCliente(ClienteAbstract cliente) {
+		this.cliente = cliente;
+	}
+
+	public Date getDataEntrada() {
+		return dataEntrada;
+	}
+
+	public void setDataEntrada(Date dataEntrada) {
+		this.dataEntrada = dataEntrada;
+	}
+
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
+
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
 	}
 
 	public Endereco getEnderecoEntrega() {

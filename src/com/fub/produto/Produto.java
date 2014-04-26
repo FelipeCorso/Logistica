@@ -7,6 +7,14 @@ public class Produto {
 	private double peso;
 	private String descricao;
 
+	public Produto(int codigo, double largura, double altura, double peso, String descricao) {
+		this.codigo = codigo;
+		this.largura = largura;
+		this.altura = altura;
+		this.peso = peso;
+		this.descricao = descricao;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

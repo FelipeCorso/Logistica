@@ -2,7 +2,7 @@ package com.fub.pedido.pessoa;
 
 import com.fub.endereco.Endereco;
 
-public abstract class PessoaAbstract {
+public abstract class ClienteAbstract {
 	private int codigo;
 	private String nome;
 	private String razaoSocial;
