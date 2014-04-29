@@ -5,13 +5,15 @@ public class Produto {
 	private double largura;
 	private double altura;
 	private double peso;
+	private double vlrUnitario;
 	private String descricao;
 
-	public Produto(int codigo, double largura, double altura, double peso, String descricao) {
+	public Produto(int codigo, double largura, double altura, double peso, double vlrUnitario, String descricao) {
 		this.codigo = codigo;
 		this.largura = largura;
 		this.altura = altura;
 		this.peso = peso;
+		this.vlrUnitario = vlrUnitario;
 		this.descricao = descricao;
 	}
 
@@ -45,6 +47,14 @@ public class Produto {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
+	}
+
+	public double getVlrUnitario() {
+		return vlrUnitario;
+	}
+
+	public void setVlrUnitario(double vlrUnitario) {
+		this.vlrUnitario = vlrUnitario;
 	}
 
 	public String getDescricao() {
