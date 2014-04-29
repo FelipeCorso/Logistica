@@ -88,6 +88,10 @@ public class Pedido extends Thread {
 	public synchronized void setValorPedido(double valorPedido) {
 		this.valorPedido = valorPedido;
 	}
+	
+	public synchronized void incrementarFrete(float valor){
+		this.valorPedido += valor;
+	}
 
 	// FIXME: REMOVER SE NÃO UTILIZAR
 	public void calcularVlrPedido() {
