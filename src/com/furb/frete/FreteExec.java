@@ -17,7 +17,7 @@ public class FreteExec {
 	public static void main(String[] args) {
 		FreteExec freteExec = new FreteExec();
 		
-		
+		//teste
 		//freteExec.chamaFrete(pedido);
 	}
 }
