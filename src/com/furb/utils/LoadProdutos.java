@@ -58,11 +58,11 @@ public class LoadProdutos {
 		criaProduto(35, 40, 1.5, 120, "BATEDEIRA");
 		criaProduto(80, 45, 20, 999, "LAVADORA DE ROUPAS");
 		criaProduto(60, 45, 30, 1345, "LAVADORA DE LOUÇAS");
-		criaProduto(120, 100, 2, 150, "MESAS DE PL�?STICO");
+		criaProduto(120, 100, 2, 150, "MESAS DE PLÁSTICO");
 		criaProduto(100, 40, 2, 45, "CADEIRA");
 		criaProduto(100, 50, 10, 89, "CONJUNTO DE PANELAS");
 		criaProduto(180, 100, 20, 700, "GELADEIRA");
-		criaProduto(80, 40, 10, 350, "CENTR�?FUGA");
+		criaProduto(80, 40, 10, 350, "CENTRÍFUGA");
 		criaProduto(35, 20, 2, 39, "CAFETEIRA");
 		criaProduto(50, 30, 2, 185, "ASPIRADOR DE PÓ");
 		criaProduto(80, 40, 7, 178, "CIRCULADOR DE AR");

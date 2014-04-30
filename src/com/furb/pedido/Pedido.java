@@ -20,6 +20,21 @@ public class Pedido extends Thread {
 	private double valorPedido;
 	private EnStatus statusPedido;
 
+	public Pedido() {
+
+	}
+
+	public Pedido(int codigo, ClienteAbstract cliente, Date dataEntrada, Date dataEntrega, Endereco enderecoPostoAtend, Endereco enderecoEntrega, List<Produto> listaProdutos, double valorPedido) {
+		this.codigo = codigo;
+		this.cliente = cliente;
+		this.dataEntrada = dataEntrada;
+		this.dataEntrega = dataEntrega;
+		this.enderecoPostoAtend = enderecoPostoAtend;
+		this.enderecoEntrega = enderecoEntrega;
+		this.listaProdutos = listaProdutos;
+		this.valorPedido = valorPedido;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}

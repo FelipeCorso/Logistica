@@ -10,6 +10,15 @@ public abstract class ClienteAbstract {
 	private int cnpj;
 	private Endereco endereco;
 
+	public ClienteAbstract(int codigo, String nome, String razaoSocial, int cpf, int cnpj, Endereco endereco) {
+		this.codigo = codigo;
+		this.nome = nome;
+		this.razaoSocial = razaoSocial;
+		this.cpf = cpf;
+		this.cnpj = cnpj;
+		this.endereco = endereco;
+	}
+
 	public int getCodigo() {
 		return codigo;
 	}
