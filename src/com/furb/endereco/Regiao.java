@@ -1,6 +1,5 @@
 package com.furb.endereco;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,29 +7,37 @@ import java.util.Map;
 import com.furb.pedido.Pedido;
 
 public class Regiao {
-	private int codigo;
-	private List<Pedido> pedidosEntregues;
 	private Map<EnEstado, List<Pedido>> pedidosAEntregarMap;
 	private int numeroPontosASeremVisitados;
 	private int numeroParadas;
 	private int numRoteirosDiarioVeiculo;
 	private final String id;
 
+	public void setNumeroPontosASeremVisitados(int numeroPontosASeremVisitados) {
+		this.numeroPontosASeremVisitados = numeroPontosASeremVisitados;
+	}
+
+	public void setNumeroParadas(int numeroParadas) {
+		this.numeroParadas = numeroParadas;
+	}
+
 	public Regiao(String id) {
 		this.id = id;
 		this.pedidosAEntregarMap = new HashMap<>();
-		this.pedidosEntregues = new ArrayList<Pedido>();
 	}
 
 	public int AtualizarNumFrotaNecessaria(int numDiasUteis, int periodoAtendimento) {
 		int nZonas = 0;
 		int result = 0;
 
-		nZonas = numeroPontosASeremVisitados / numeroParadas;
-
-		result = nZonas / (numRoteirosDiarioVeiculo * numDiasUteis * (periodoAtendimento / 7));
+		nZonas = (int) Math.ceil((double) numeroPontosASeremVisitados / numeroParadas);
+		result = (int) Math.ceil(nZonas / ((float) numRoteirosDiarioVeiculo * (float) numDiasUteis * ((float) periodoAtendimento / 7)));
 
 		return result;
+	}
+
+	public void setNumRoteirosDiarioVeiculo(int numRoteirosDiarioVeiculo) {
+		this.numRoteirosDiarioVeiculo = numRoteirosDiarioVeiculo;
 	}
 
 	public void addPedidosAEntregar(EnEstado estado, List<Pedido> listaPedidosParam) {
