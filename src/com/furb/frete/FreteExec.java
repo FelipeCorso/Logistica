@@ -1,7 +1,7 @@
 package com.furb.frete;
 
-import com.fub.pedido.Pedido;
-import com.fub.produto.Produto;
+import com.furb.pedido.Pedido;
+import com.furb.produto.Produto;
 
 public class FreteExec {
 	public void chamaFrete(Pedido pedido){
