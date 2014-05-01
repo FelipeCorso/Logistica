@@ -13,7 +13,7 @@ public class CriaMapaEstados {
 	private ReentrantLock lock;
 
 	public CriaMapaEstados() {
-		this.mapaEstados = new TreeMap<>();
+		this.mapaEstados = new TreeMap<EnEstado, List<Pedido>>();
 		this.lock = new ReentrantLock();
 	}
 

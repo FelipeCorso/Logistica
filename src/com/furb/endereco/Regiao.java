@@ -23,7 +23,7 @@ public class Regiao {
 
 	public Regiao(String id) {
 		this.id = id;
-		this.pedidosAEntregarMap = new HashMap<>();
+		this.pedidosAEntregarMap = new HashMap<EnEstado, List<Pedido>>();
 	}
 
 	public int AtualizarNumFrotaNecessaria(int numDiasUteis, int periodoAtendimento) {
