@@ -26,7 +26,7 @@ public class Regiao {
 		this.pedidosAEntregarMap = new HashMap<EnEstado, List<Pedido>>();
 	}
 
-	public int AtualizarNumFrotaNecessaria(int numDiasUteis, int periodoAtendimento) {
+	public int CalcularNumFrotaNecessaria(int numDiasUteis, int periodoAtendimento) {
 		int nZonas = 0;
 		int result = 0;
 

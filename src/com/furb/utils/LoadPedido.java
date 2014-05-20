@@ -14,6 +14,6 @@ public class LoadPedido {
 		Endereco endereco2 = new Endereco(2, "Logradouro teste2", 5432432, "nr 1000", "Vila Nova", "Blumenau", EnEstado.SC, "Brasil");
 		ClientePessoaFisica cliente = new ClientePessoaFisica(0, "Jo�o da Silva", "Casado", 987654329, 76987687, endereco);
 
-		return new Pedido(0, cliente, new Date(), new Date(), endereco1, endereco2, LoadProdutos.getInstance().getListaProdutos(), 0);
+		return new Pedido(0, cliente, new Date(), new Date(), endereco1, endereco2, LoadProdutos.getInstance().getListaProdutos(), 0, 10, 15);
 	}
 }

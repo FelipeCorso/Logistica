@@ -15,7 +15,7 @@ public class CalculoRegiao extends Thread {
 	public void run() {
 		// TODO Auto-generated method stub
 		int qtdFrotaParcial = 0;
-		qtdFrotaParcial = regiao.AtualizarNumFrotaNecessaria(transportadora.getTotalDiasSemana(), transportadora.getPeriodoatendimentoclientes());
+		qtdFrotaParcial = regiao.CalcularNumFrotaNecessaria(transportadora.getTotalDiasSemana(), transportadora.getPeriodoatendimentoclientes());
 
 		try {
 			this.transportadora.AdicinarFrota(qtdFrotaParcial);

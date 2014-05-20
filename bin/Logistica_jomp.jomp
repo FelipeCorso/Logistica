@@ -1,3 +1,8 @@
+import java.net.URL;
+import java.text.MessageFormat;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import jomp.runtime.OMP;
@@ -5,40 +10,41 @@ import jomp.runtime.OMP;
 import com.furb.endereco.Regiao;
 import com.furb.utils.Mock;
 
-public class Main {
-	public static void main(String[] args) {
+public class Main_jomp {
+	public static void main(String[] args) throws InterruptedException {
 		int opcao = 0;
 		boolean sair = false;
 		Scanner scanner =  new Scanner(System.in);
-				
+		
 		System.out.println("Escolha uma Opção: ");
 		System.out.println("1 - Calcular Frota Necessária");
 		System.out.println("666 - Sair");
 		
 		while (!sair) {
-			try {
+			try {				
 				opcao = Integer.parseInt(scanner.next());				
 				switch (opcao) {
 				case 1:
-					CalcularFrota();
+			        CalcularFrota();
 					break;
 				case 666:
 					sair = true;
+
 				default:
 					break;
 				}
 				
-				System.out.println("\nEscolha uma Opção: ");
+				System.out.println("Escolha uma Opção: ");
 				System.out.println("1 - Calcular Frota Necessária");
 				System.out.println("666 - Sair");
 				
 			} catch (NumberFormatException nfe) {
-				System.out.println("\nOpção inválida! Tente novamente.");
+				System.out.println("Opção inválida! Tente novamente.");
 			}
 		}
 	}
 	
-	private static void CalcularFrota() {
+	private static void CalcularFrota() throws InterruptedException {
 		
 		Regiao[] regioes = Mock.GetRegioes(10);
 		
