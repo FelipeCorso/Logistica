@@ -19,14 +19,14 @@ public class Pedido extends Thread {
 	private List<Produto> listaProdutos;
 	private double valorPedido;
 	private EnStatus statusPedido;
-	private int coordX;
-	private int coordY;
+	private double coordX;
+	private double coordY;
 
 	public Pedido() {
 
 	}
 
-	public Pedido(int codigo, ClienteAbstract cliente, Date dataEntrada, Date dataEntrega, Endereco enderecoPostoAtend, Endereco enderecoEntrega, List<Produto> listaProdutos, double valorPedido, int x, int y) {
+	public Pedido(int codigo, ClienteAbstract cliente, Date dataEntrada, Date dataEntrega, Endereco enderecoPostoAtend, Endereco enderecoEntrega, List<Produto> listaProdutos, double valorPedido, double x, double y) {
 		this.codigo = codigo;
 		this.cliente = cliente;
 		this.dataEntrada = dataEntrada;
@@ -43,19 +43,19 @@ public class Pedido extends Thread {
 		return codigo;
 	}
 	
-	public int getCoordenadaX() {
+	public double getCoordenadaX() {
 		return this.coordX;
 	}
 	
-	public int getCoordenadaY() {
+	public double getCoordenadaY() {
 		return this.coordY;
 	}
 	
-	public void setCoordenadaX(int x) {
+	public void setCoordenadaX(double x) {
 		this.coordX = x;
 	}
 	
-	public void setCoordenadaY(int y) {
+	public void setCoordenadaY(double y) {
 		this.coordY = y;
 	}
 

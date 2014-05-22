@@ -18,9 +18,13 @@ public class ClusterizarRegioes  extends ClusteringInputData {
     private void prepareAttributes() {
         Attribute firstAttribute = prepareFirstAttribute();
         Attribute secondAttribute = prepareSecondAttribute();
+        Attribute thirdAttribute = prepareThirdAttribute();
         
         addAttribute( firstAttribute );
         addAttribute( secondAttribute );
+        addAttribute( thirdAttribute);
+        setAttributeAsDecision("codigo");
+        
     }
 
     private Attribute prepareFirstAttribute() {
@@ -43,5 +47,16 @@ public class ClusterizarRegioes  extends ClusteringInputData {
         }
         
         return atributoY;
+    }
+    
+    private Attribute prepareThirdAttribute() {
+    	Attribute atributoId = new Attribute();
+    	atributoId.setName( "codigo" );
+        
+        for ( int i = 0; i < this.pedidos.length; i++ ) {
+        	atributoId.addValue(pedidos[i].getCodigo());
+        }
+        
+        return atributoId;
     }
 }
