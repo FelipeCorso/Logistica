@@ -1,5 +1,9 @@
 package com.furb.veiculo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.furb.pedido.Pedido;
 import com.furb.transportadora.deposito.Deposito;
 import com.furb.veiculo.combustivel.EnCombustivel;
 import com.furb.veiculo.motorista.Motorista;
@@ -15,8 +19,10 @@ public abstract class VeiculoAbstract implements IVeiculo {
 	private double capacidade;
 	private double capacidadeM3;
 	private EnSituacao enSituacao;
+	private List<Pedido> listaPedidos;
 
-	public VeiculoAbstract(Motorista motorista, Deposito deposito, EnCombustivel enCombustivel, EnSituacao enSituacao) {
+	public VeiculoAbstract(Motorista motorista, Deposito deposito,
+			EnCombustivel enCombustivel, EnSituacao enSituacao) {
 		this.motorista = motorista;
 		this.deposito = deposito;
 		this.enCombustivel = enCombustivel;
@@ -96,6 +102,17 @@ public abstract class VeiculoAbstract implements IVeiculo {
 	@Override
 	public void setEnSituacao(EnSituacao enSituacao) {
 		this.enSituacao = enSituacao;
+	}
+
+	public List<Pedido> getListaPedidos() {
+		if (this.listaPedidos == null) {
+			this.listaPedidos = new ArrayList<Pedido>();
+		}
+		return listaPedidos;
+	}
+
+	public void setListaPedidos(List<Pedido> listaPedidos) {
+		this.listaPedidos = listaPedidos;
 	}
 
 }

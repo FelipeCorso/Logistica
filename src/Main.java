@@ -6,7 +6,7 @@ import com.furb.endereco.Regiao;
 import com.furb.utils.Mock;
 
 public class Main {
-	private static final String CALCULAR_FROTA_NECESSÁRIA = "1 - Calcular Frota Necessária";
+	private static final String CALCULAR_FROTA_NECESSARIA = "1 - Calcular Frota Necessária";
 	private static final String ESCOLHA_UMA_OPCAO = "Escolha uma Opção: ";
 
 	public static void main(String[] args) {
@@ -15,7 +15,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println(ESCOLHA_UMA_OPCAO);
-		System.out.println(CALCULAR_FROTA_NECESSÁRIA);
+		System.out.println(CALCULAR_FROTA_NECESSARIA);
 		System.out.println("666 - Sair");
 
 		while (!sair) {
@@ -32,7 +32,7 @@ public class Main {
 				}
 
 				System.out.println("\n" + ESCOLHA_UMA_OPCAO);
-				System.out.println(CALCULAR_FROTA_NECESSÁRIA);
+				System.out.println(CALCULAR_FROTA_NECESSARIA);
 				System.out.println("666 - Sair");
 
 			} catch (NumberFormatException nfe) {
