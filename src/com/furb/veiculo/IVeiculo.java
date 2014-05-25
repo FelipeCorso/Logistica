@@ -1,5 +1,8 @@
 package com.furb.veiculo;
 
+import java.util.List;
+
+import com.furb.pedido.Pedido;
 import com.furb.transportadora.deposito.Deposito;
 import com.furb.veiculo.combustivel.EnCombustivel;
 import com.furb.veiculo.motorista.Motorista;
@@ -36,4 +39,13 @@ public interface IVeiculo {
 
 	public void setEnSituacao(EnSituacao enSituacao);
 
+	public List<Pedido> getListaPedidos();
+
+	public void setListaPedidos(List<Pedido> listaPedidos);
+
+	public void addPedido(Pedido pedido);
+
+	public String getPlaca();
+
+	public void setPlaca(String placa);
 }

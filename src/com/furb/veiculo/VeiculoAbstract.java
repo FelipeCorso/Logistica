@@ -14,15 +14,15 @@ public abstract class VeiculoAbstract implements IVeiculo {
 	private Motorista motorista;
 	private Deposito deposito;
 	private int codigo;
-	private EnCombustivel enCombustivel;
 	private double consumo;
 	private double capacidade;
 	private double capacidadeM3;
+	private EnCombustivel enCombustivel;
 	private EnSituacao enSituacao;
 	private List<Pedido> listaPedidos;
+	private String placa;
 
-	public VeiculoAbstract(Motorista motorista, Deposito deposito,
-			EnCombustivel enCombustivel, EnSituacao enSituacao) {
+	public VeiculoAbstract(Motorista motorista, Deposito deposito, EnCombustivel enCombustivel, EnSituacao enSituacao) {
 		this.motorista = motorista;
 		this.deposito = deposito;
 		this.enCombustivel = enCombustivel;
@@ -104,6 +104,7 @@ public abstract class VeiculoAbstract implements IVeiculo {
 		this.enSituacao = enSituacao;
 	}
 
+	@Override
 	public List<Pedido> getListaPedidos() {
 		if (this.listaPedidos == null) {
 			this.listaPedidos = new ArrayList<Pedido>();
@@ -111,8 +112,24 @@ public abstract class VeiculoAbstract implements IVeiculo {
 		return listaPedidos;
 	}
 
+	@Override
 	public void setListaPedidos(List<Pedido> listaPedidos) {
 		this.listaPedidos = listaPedidos;
+	}
+
+	@Override
+	public void addPedido(Pedido pedido) {
+		this.getListaPedidos().add(pedido);
+	}
+
+	@Override
+	public String getPlaca() {
+		return placa;
+	}
+
+	@Override
+	public void setPlaca(String placa) {
+		this.placa = placa;
 	}
 
 }
