@@ -1,5 +1,6 @@
 package com.furb.endereco;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,9 +9,10 @@ import com.furb.pedido.Pedido;
 
 public class Regiao {
 	private Map<EnEstado, List<Pedido>> pedidosAEntregarMap;
+	private List<Pedido> pedidos;
 	private int numeroPontosASeremVisitados;
-	private int numeroParadas;
-	private int numRoteirosDiarioVeiculo;
+	private int numeroParadas = 2;
+	private int numRoteirosDiarioVeiculo = 1;
 	private final String id;
 
 	public void setNumeroPontosASeremVisitados(int numeroPontosASeremVisitados) {
@@ -20,15 +22,34 @@ public class Regiao {
 	public void setNumeroParadas(int numeroParadas) {
 		this.numeroParadas = numeroParadas;
 	}
-
+	
 	public Regiao(String id) {
 		this.id = id;
 		this.pedidosAEntregarMap = new HashMap<EnEstado, List<Pedido>>();
+		this.pedidos = new ArrayList<Pedido>();
+	}
+	
+	public Regiao() {
+		this.id = "";
+		this.pedidosAEntregarMap = new HashMap<EnEstado, List<Pedido>>();
+		this.pedidos = new ArrayList<Pedido>();
+	}
+	
+	public void addPedido(Pedido pedido){
+		this.pedidos.add(pedido);
+	}
+
+	public List<Pedido> getPedidos(){
+		return this.pedidos;
 	}
 
 	public int CalcularNumFrotaNecessaria(int numDiasUteis, int periodoAtendimento) {
 		int nZonas = 0;
 		int result = 0;
+			
+		if(pedidos != null){
+			numeroPontosASeremVisitados = pedidos.size();
+		}
 
 		nZonas = (int) Math.ceil((double) numeroPontosASeremVisitados / numeroParadas);
 		result = (int) Math.ceil(nZonas / ((float) numRoteirosDiarioVeiculo * (float) numDiasUteis * ((float) periodoAtendimento / 7)));
@@ -58,6 +79,5 @@ public class Regiao {
 
 	public String getId() {
 		return id;
-	}
-
+	}	
 }
