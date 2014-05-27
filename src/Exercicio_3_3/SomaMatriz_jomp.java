@@ -11,7 +11,7 @@ public class SomaMatriz_jomp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int numThreads = 15;
+		int numThreads = 400;
 		int myId = 0;
 		int n = 10;
 		int cont = 0;
