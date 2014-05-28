@@ -4,51 +4,15 @@ import jomp.runtime.OMP;
 
 import com.furb.pedido.Pedido;
 import com.furb.produto.Produto;
-import com.furb.utils.LoadPedido;
 
-public class CalculoFreteOPM_jomp {
+public class FreteOMP_jomp {
 
 	
-	public static void main(String[] args) {
-		Pedido pedido = new Pedido();
-		// TODO Auto-generated method stub
-		CalculoFreteOPM_jomp calculoFreteOPM = new CalculoFreteOPM_jomp();
-		//calculoFreteOPM.calculaValorFrete();
-		LoadPedido loadPedido = new LoadPedido();
-		
-		pedido = loadPedido.criaPedido();
-		calculoFreteOPM.calculaValorFrete(pedido);
-		System.out.println("Valor final de pedido:"+ pedido.getValorPedido());
-		
-	}
-//	public void calculaValorFrete(){
-//		int numThreads = 15;
-//		int myId =0;
-//		int n = 10;
-//		int cont = 0;		
-//		OMP.setNumThreads(numThreads);
-//		
-//		//omp parallel private(myId) reduction(+:cont)
-//		{
-//			myId = OMP.getThreadNum();
-//			
-//			for (int i = 0; i < n; i++) {
-//				cont += myId * i;
-//			}
-//			
-//			System.out.println("Thread " + myId + " total produto= " + cont);
-//		}
-//		
-//		System.out.println("Valor final de pedido = " + cont);
-//		
-//	}
-	
-	public void calculaValorFrete(Pedido pedido){
+	public double getValorFretePedido(Pedido pedido){
 		int numThreads = pedido.getListaProdutos().size();
 		int myId =0;
 		int cont = 0;		
-		
-		
+				
 		OMP.setNumThreads(numThreads);
 
 // OMP PARALLEL BLOCK BEGINS
@@ -71,11 +35,10 @@ public class CalculoFreteOPM_jomp {
   pedido = __omp_Object0.pedido;
 }
 // OMP PARALLEL BLOCK ENDS
-
 		
-		System.out.println("Valor final de cont pedido = " + cont);
+		System.out.println("Valor final de pedido = " + cont);
 		pedido.setValorPedido(cont);
-		
+		return cont;
 	}
 	
 	/**
@@ -108,7 +71,6 @@ private class __omp_Class0 extends jomp.runtime.BusyTask {
 			myId = OMP.getThreadNum();
 			// metodo calcula valor do frete
 			cont += getFreteCalculado(pedido.getListaProdutos().get(myId));
-						
 			System.out.println("Thread " + myId + " total produto= " + cont);
 		}
     // OMP USER CODE ENDS

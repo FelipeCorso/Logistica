@@ -15,6 +15,7 @@ import jomp.runtime.OMP;
 
 import com.furb.endereco.RegiaoUtil;
 import com.furb.endereco.Regiao;
+import com.furb.frete.CalcularFrete;
 import com.furb.pedido.Pedido;
 import com.furb.pedido.PedidoUtil;
 import com.furb.utils.Mock;
@@ -23,11 +24,14 @@ public class Main_jomp {
 
 	private static final String CALCULAR_FROTA_NECESSARIA = "1 - Calcular Frota Necess\u00e1ria";
 	private static final String CRIAR_REGIOES = "2 - Criar Regi\u00f5es";
+	private static final String CALCULAR_FRETE = "3 - Calcular o Frete do Pedido: ";
 	private static final String ESCOLHA_UMA_OPCAO = "Escolha uma op\u00e7\u00e3o: ";
 	private static Mock mock;
 	private static Scanner scanner;
+	
 
 	public static void main(String[] args) {
+		CalcularFrete calcularFrete = new CalcularFrete();
 		int opcao = 0;
 		boolean sair = false;
 		scanner = new Scanner(System.in);
@@ -36,6 +40,7 @@ public class Main_jomp {
 		System.out.println(ESCOLHA_UMA_OPCAO);
 		System.out.println(CALCULAR_FROTA_NECESSARIA);
 		System.out.println(CRIAR_REGIOES);
+		System.out.println(CALCULAR_FRETE);
 		System.out.println("666 - Sair");
 
 		while (!sair) {
@@ -49,6 +54,12 @@ public class Main_jomp {
 					System.out.println("\nQuantas regi\u00f5es voc\u00ea deseja criar?");
 					opcao = Integer.parseInt(scanner.next());
 					CriarRegioes(opcao);
+					break;
+				case 3:
+					System.out.println("\nQuantos pedidos voc\u00ea deseja criar?");
+					opcao = Integer.parseInt(scanner.next());
+					calcularFrete.execCalcularFrete(opcao);
+					
 					break;
 				case 666:
 					sair = true;

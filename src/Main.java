@@ -69,6 +69,7 @@ public class Main {
 				System.out.println("\n" + ESCOLHA_UMA_OPCAO);
 				System.out.println(CALCULAR_FROTA_NECESSARIA);
 				System.out.println(CRIAR_REGIOES);
+				System.out.println(CALCULAR_FRETE);
 				System.out.println("666 - Sair");
 
 			} catch (NumberFormatException nfe) {
