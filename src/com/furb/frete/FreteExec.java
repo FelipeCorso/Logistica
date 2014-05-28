@@ -3,8 +3,6 @@ package com.furb.frete;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.furb.endereco.CalculoRegiao;
-import com.furb.endereco.Regiao;
 import com.furb.pedido.Pedido;
 import com.furb.produto.Produto;
 import com.furb.utils.LoadPedido;
