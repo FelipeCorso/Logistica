@@ -56,8 +56,10 @@ public class Main {
 					break;
 				case 3:
 					System.out.println("\nQuantos pedidos voc� deseja criar?");
-					opcao = Integer.parseInt(scanner.next());
-					calcularFrete.execCalcularFrete(opcao);
+					int nPedido = Integer.parseInt(scanner.next());
+					System.out.println("\nQuantos produtos tera cada pedido?");
+					int nProduto = Integer.parseInt(scanner.next());
+					calcularFrete.execCalcularFrete(nPedido, nProduto);
 					
 					break;
 				case 666:
@@ -73,7 +75,7 @@ public class Main {
 				System.out.println("666 - Sair");
 
 			} catch (NumberFormatException nfe) {
-				System.out.println("\nOpção inválida! Tente novamente.");
+				System.out.println("\nOpcao invalida! Tente novamente.");
 			}
 		}
 	}

@@ -40,7 +40,34 @@ public class Mock {
 			//adiciona os produtos sequencialmente na lista de produtos do pedido.
 			for(int j = 0; j < 3; j++){
 				listProduto.add(LoadProdutos.getInstance().getProdutoSequencial(j));
+				
 			}
+			
+			temp.setListaProdutos(listProduto);
+			pedidos[i] = temp;
+		}
+		
+		return pedidos;
+	}
+	
+	public static Pedido[] GetPedidosProdutos(int nPedidos, int nProdutos){
+		Pedido[] pedidos = new Pedido[nPedidos];
+		List<Produto>listProduto;
+		Pedido temp;
+		Random random = new Random();
+		for (int i = 0; i < pedidos.length; i++) {
+			listProduto = new ArrayList<>();
+			temp = new Pedido();
+			temp.setCodigo(i);
+			temp.setCoordenadaX(random.nextInt(25));
+			temp.setCoordenadaY(i);
+			
+			//adiciona os produtos sequencialmente na lista de produtos do pedido.
+			for(int j = 0; j < nProdutos; j++){
+				listProduto.add(LoadProdutos.getInstance().getProdutoSequencial(j));
+				
+			}
+			
 			temp.setListaProdutos(listProduto);
 			pedidos[i] = temp;
 		}

@@ -5,13 +5,14 @@ import com.furb.utils.Mock;
 
 public class CalcularFrete {
 	Pedido vetPedido[];
-	FreteOMP freteOMP;
+	FreteOMP_jomp freteOMP;
 	private static Mock mock;
-	public void execCalcularFrete(int opcao){
-		System.out.println("numero de pedidos: "+opcao);
-		freteOMP = new FreteOMP();
-		vetPedido = mock.GetPedidos(opcao);
-		for (int i = 0; i < opcao; i++) {
+	
+	public void execCalcularFrete(int pedido, int produto){
+		System.out.println("Quantidade de Pedidos: "+pedido);
+		freteOMP = new FreteOMP_jomp();
+		vetPedido = mock.GetPedidosProdutos(pedido,produto);
+		for (int i = 0; i < pedido; i++) {
 			vetPedido[i].setValorPedido(freteOMP.getValorFretePedido(vetPedido[i]));
 		}
 	}

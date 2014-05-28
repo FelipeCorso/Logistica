@@ -12,7 +12,8 @@ public class FreteOMP_jomp {
 		int numThreads = pedido.getListaProdutos().size();
 		int myId =0;
 		int cont = 0;		
-				
+		System.out.println("Quantidade de itens: "+pedido.getListaProdutos().size());		
+		System.out.println("----- Calculando frete para os produtos -----");
 		OMP.setNumThreads(numThreads);
 
 // OMP PARALLEL BLOCK BEGINS
