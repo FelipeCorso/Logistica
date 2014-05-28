@@ -122,7 +122,7 @@ public class Pedido extends Thread {
 		return valorPedido;
 	}
 
-	public synchronized void setValorPedido(double valorPedido) {
+	public void setValorPedido(double valorPedido) {
 		this.valorPedido = valorPedido;
 	}
 
