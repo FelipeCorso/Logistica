@@ -21,18 +21,12 @@ public class LoadProdutos {
 	}
 
 	/**
-	 * Retorna de forma aleatÃ³ria um objeto da lista de produtos.
+	 * Retorna de forma aleatória um objeto da lista de produtos.
 	 * 
 	 * @return um objeto da classe {@link Produto}
 	 */
 	public Produto getProduto() {
 		return this.getListaProdutos().get((int) (Math.random() * this.getListaProdutos().size()));
-	}
-	public Produto getProdutoSequencial(int cont) {
-		if(cont > this.getListaProdutos().size()){
-			cont = 0;
-		}
-		return this.getListaProdutos().get(cont);
 	}
 
 	/**
@@ -63,17 +57,17 @@ public class LoadProdutos {
 		criaProduto(130, 80, 40, 750, "FREEZER");
 		criaProduto(35, 40, 1.5, 120, "BATEDEIRA");
 		criaProduto(80, 45, 20, 999, "LAVADORA DE ROUPAS");
-		criaProduto(60, 45, 30, 1345, "LAVADORA DE LOUÃ‡AS");
-		criaProduto(120, 100, 2, 150, "MESAS DE PLÃ�STICO");
+		criaProduto(60, 45, 30, 1345, "LAVADORA DE LOUÇAS");
+		criaProduto(120, 100, 2, 150, "MESAS DE PLÁSTICO");
 		criaProduto(100, 40, 2, 45, "CADEIRA");
 		criaProduto(100, 50, 10, 89, "CONJUNTO DE PANELAS");
 		criaProduto(180, 100, 20, 700, "GELADEIRA");
-		criaProduto(80, 40, 10, 350, "CENTRÃ�FUGA");
+		criaProduto(80, 40, 10, 350, "CENTRÍFUGA");
 		criaProduto(35, 20, 2, 39, "CAFETEIRA");
-		criaProduto(50, 30, 2, 185, "ASPIRADOR DE PÃ“");
+		criaProduto(50, 30, 2, 185, "ASPIRADOR DE PÓ");
 		criaProduto(80, 40, 7, 178, "CIRCULADOR DE AR");
-		criaProduto(60, 45, 9, 357, "FORNO ELÃ‰TRICO");
-		criaProduto(75, 55, 17, 457, "FOGÃƒO");
+		criaProduto(60, 45, 9, 357, "FORNO ELÉTRICO");
+		criaProduto(75, 55, 17, 457, "FOGÃO");
 		criaProduto(30, 15, 0.3, 67, "SECADOR DE CABELO");
 		criaProduto(100, 35, 3, 123, "ENCERADEIRA");
 		criaProduto(25, 15, 0.530, 700, "FILMADORA");
