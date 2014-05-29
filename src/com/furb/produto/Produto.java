@@ -1,6 +1,12 @@
 package com.furb.produto;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6015399968247359491L;
 	private int codigo;
 	private double largura;
 	private double altura;
@@ -15,6 +21,9 @@ public class Produto {
 		this.peso = peso;
 		this.vlrUnitario = vlrUnitario;
 		this.descricao = descricao;
+	}
+
+	public Produto() {
 	}
 
 	public int getCodigo() {
