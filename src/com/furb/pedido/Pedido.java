@@ -1,5 +1,6 @@
 package com.furb.pedido;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,7 +10,8 @@ import com.furb.pedido.pessoa.ClienteAbstract;
 import com.furb.pedido.status.EnStatus;
 import com.furb.produto.Produto;
 
-public class Pedido extends Thread {
+public class Pedido extends Thread implements Serializable {
+	private static final long serialVersionUID = -3000755217109375031L;
 	private int codigo;
 	private ClienteAbstract cliente;
 	private Date dataEntrada;
@@ -26,7 +28,8 @@ public class Pedido extends Thread {
 
 	}
 
-	public Pedido(int codigo, ClienteAbstract cliente, Date dataEntrada, Date dataEntrega, Endereco enderecoPostoAtend, Endereco enderecoEntrega, List<Produto> listaProdutos, double valorPedido, double x, double y) {
+	public Pedido(int codigo, ClienteAbstract cliente, Date dataEntrada, Date dataEntrega, Endereco enderecoPostoAtend, Endereco enderecoEntrega, List<Produto> listaProdutos, double valorPedido,
+			double x, double y) {
 		this.codigo = codigo;
 		this.cliente = cliente;
 		this.dataEntrada = dataEntrada;
@@ -42,19 +45,19 @@ public class Pedido extends Thread {
 	public int getCodigo() {
 		return codigo;
 	}
-	
+
 	public double getCoordenadaX() {
 		return this.coordX;
 	}
-	
+
 	public double getCoordenadaY() {
 		return this.coordY;
 	}
-	
+
 	public void setCoordenadaX(double x) {
 		this.coordX = x;
 	}
-	
+
 	public void setCoordenadaY(double y) {
 		this.coordY = y;
 	}
@@ -152,4 +155,8 @@ public class Pedido extends Thread {
 		thread.start();
 	}
 
+	@Override
+	public String toString() {
+		return String.valueOf(this.getCodigo());
+	}
 }
