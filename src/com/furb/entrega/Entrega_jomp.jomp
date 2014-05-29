@@ -8,14 +8,14 @@ import com.furb.pedido.Pedido;
 import com.furb.produto.Produto;
 import com.furb.veiculo.Veiculo;
 
-public class Entrega {
+public class Entrega_jomp {
 
-	public static void efetuarEntrega(List listaVeiculos) {
+	public static void efetuarEntrega_jomp(List listaVeiculos) {
 		System.out.println(listaVeiculos.size());
 		OMP.setNumThreads(listaVeiculos.size());
 
-		int qtdEntregasEfetuadas = 0;
-		//omp parallel reduction(+:qtdEntregasEfetuadas)
+		int qtdEntrega_jompsEfetuadas = 0;
+		//omp parallel reduction(+:qtdEntrega_jompsEfetuadas)
 		{
 			//omp for ordered
 			for (int inx = 0; inx < listaVeiculos.size(); inx++) {
@@ -34,10 +34,10 @@ public class Entrega {
 						System.out.println("EFETUANDO ENTREGA");
 						System.out.println("PRODUTO: " + produto.getCodigo() + " - " + produto.getDescricao());
 						System.out.println("ENTREGA EFETUADA");
-						qtdEntregasEfetuadas++;
+						qtdEntrega_jompsEfetuadas++;
 					}
 				}
-				System.out.println("QUANTIDADE DE ENTREGAS EFETUADAS: " + qtdEntregasEfetuadas);
+				System.out.println("QUANTIDADE DE ENTREGAS EFETUADAS: " + qtdEntrega_jompsEfetuadas);
 			}
 		}
 	}
