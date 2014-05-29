@@ -16,6 +16,7 @@ public class Entrega_jomp {
 		OMP.setNumThreads(listaVeiculos.size());
 
 		int qtdEntrega_jompsEfetuadas = 0;
+		int inx;
 
 // OMP PARALLEL BLOCK BEGINS
 {
@@ -32,6 +33,7 @@ public class Entrega_jomp {
   // reduction variables
   qtdEntrega_jompsEfetuadas  += __omp_Object0._rd_qtdEntrega_jompsEfetuadas;
   // shared variables
+  inx = __omp_Object0.inx;
   listaVeiculos = __omp_Object0.listaVeiculos;
 }
 // OMP PARALLEL BLOCK ENDS
@@ -41,6 +43,7 @@ public class Entrega_jomp {
 // OMP PARALLEL REGION INNER CLASS DEFINITION BEGINS
 private static class __omp_Class0 extends jomp.runtime.BusyTask {
   // shared variables
+  int inx;
   List listaVeiculos;
   // firstprivate variables
   // variables to hold results of reduction
