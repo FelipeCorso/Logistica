@@ -57,8 +57,10 @@ public class Main_jomp {
 					break;
 				case 3:
 					System.out.println("\nQuantos pedidos voc\u00ea deseja criar?");
-					opcao = Integer.parseInt(scanner.next());
-					calcularFrete.execCalcularFrete(opcao);
+					int nPedido = Integer.parseInt(scanner.next());
+					System.out.println("\nQuantos produtos tera cada pedido?");
+					int nProduto = Integer.parseInt(scanner.next());
+					calcularFrete.execCalcularFrete(nPedido, nProduto);
 					
 					break;
 				case 666:
@@ -70,10 +72,11 @@ public class Main_jomp {
 				System.out.println("\n" + ESCOLHA_UMA_OPCAO);
 				System.out.println(CALCULAR_FROTA_NECESSARIA);
 				System.out.println(CRIAR_REGIOES);
+				System.out.println(CALCULAR_FRETE);
 				System.out.println("666 - Sair");
 
 			} catch (NumberFormatException nfe) {
-				System.out.println("\nOp\u00c3\u00a7\u00c3\u00a3o inv\u00c3\u00a1lida! Tente novamente.");
+				System.out.println("\nOpcao invalida! Tente novamente.");
 			}
 		}
 	}
@@ -191,7 +194,14 @@ public class Main_jomp {
 		}
 
 		Regiao[] regioes = CriarRegioes(dsFinal, pedidos);
+		
+		ImprimirRegioes(regioes);
+		
 
+		mock.SetRegioes(regioes);
+	}
+	
+	private static void ImprimirRegioes(Regiao[] regioes){		
 		for (int i = 0; i < regioes.length; i++) {
 			System.out.println("");
 			System.out.print(regioes[i].getId());
@@ -205,8 +215,6 @@ public class Main_jomp {
 										.getCoordenadaY() + ")");
 			}
 		}
-
-		mock.SetRegioes(regioes);
 	}
 
 	private static Regiao[] CriarRegioes(Dataset[] ds, Pedido[] pedidos) {

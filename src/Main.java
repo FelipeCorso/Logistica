@@ -172,7 +172,14 @@ public class Main {
 		}
 
 		Regiao[] regioes = CriarRegioes(dsFinal, pedidos);
+		
+		ImprimirRegioes(regioes);
+		
 
+		mock.SetRegioes(regioes);
+	}
+	
+	private static void ImprimirRegioes(Regiao[] regioes){		
 		for (int i = 0; i < regioes.length; i++) {
 			System.out.println("");
 			System.out.print(regioes[i].getId());
@@ -186,8 +193,6 @@ public class Main {
 										.getCoordenadaY() + ")");
 			}
 		}
-
-		mock.SetRegioes(regioes);
 	}
 
 	private static Regiao[] CriarRegioes(Dataset[] ds, Pedido[] pedidos) {

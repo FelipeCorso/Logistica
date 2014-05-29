@@ -11,18 +11,19 @@ public class FreteOMP {
 		int numThreads = pedido.getListaProdutos().size();
 		int myId =0;
 		int cont = 0;		
-		System.out.println("Quantidade de itens: "+pedido.getListaProdutos().size());		
+		System.out.println("\nQuantidade de itens: "+pedido.getListaProdutos().size());		
 		System.out.println("----- Calculando frete para os produtos -----");
 		OMP.setNumThreads(numThreads);
 		//omp parallel private(myId) reduction(+:cont)
 		{
 			myId = OMP.getThreadNum();
 			// metodo calcula valor do frete
-			cont += getFreteCalculado(pedido.getListaProdutos().get(myId));
-			System.out.println("Thread " + myId + " total produto= " + cont);
+			//omp critical
+			{
+				cont += getFreteCalculado(pedido.getListaProdutos().get(myId));
+			}
 		}		
-		System.out.println("Valor final de pedido = " + cont);
-		pedido.setValorPedido(cont);
+		System.out.println("Valor final de pedido " + pedido.getCodigo() + "= " + cont);
 		return cont;
 	}
 	

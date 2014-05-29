@@ -12,7 +12,7 @@ public class FreteOMP_jomp {
 		int numThreads = pedido.getListaProdutos().size();
 		int myId =0;
 		int cont = 0;		
-		System.out.println("Quantidade de itens: "+pedido.getListaProdutos().size());		
+		System.out.println("\nQuantidade de itens: "+pedido.getListaProdutos().size());		
 		System.out.println("----- Calculando frete para os produtos -----");
 		OMP.setNumThreads(numThreads);
 
@@ -37,8 +37,7 @@ public class FreteOMP_jomp {
 }
 // OMP PARALLEL BLOCK ENDS
 		
-		System.out.println("Valor final de pedido = " + cont);
-		pedido.setValorPedido(cont);
+		System.out.println("Valor final de pedido " + pedido.getCodigo() + "= " + cont);
 		return cont;
 	}
 	
@@ -70,9 +69,17 @@ private class __omp_Class0 extends jomp.runtime.BusyTask {
 
 		{
 			myId = OMP.getThreadNum();
-			// metodo calcula valor do frete
-			cont += getFreteCalculado(pedido.getListaProdutos().get(myId));
-			System.out.println("Thread " + myId + " total produto= " + cont);
+                         // OMP CRITICAL BLOCK BEGINS
+                         synchronized (jomp.runtime.OMP.getLockByName("")) {
+                         // OMP USER CODE BEGINS
+
+			{
+				cont += getFreteCalculado(pedido.getListaProdutos().get(myId));
+			}
+                         // OMP USER CODE ENDS
+                         }
+                         // OMP CRITICAL BLOCK ENDS
+
 		}
     // OMP USER CODE ENDS
   // call reducer

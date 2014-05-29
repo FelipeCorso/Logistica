@@ -1,0 +1,45 @@
+package com.furb.entrega;
+
+import java.util.List;
+
+import jomp.runtime.OMP;
+
+import com.furb.pedido.Pedido;
+import com.furb.produto.Produto;
+import com.furb.veiculo.Veiculo;
+
+public class Entrega_jomp {
+
+	public static void efetuarEntrega_jomp(List listaVeiculos) {
+		System.out.println(listaVeiculos.size());
+		OMP.setNumThreads(listaVeiculos.size());
+
+		int qtdEntrega_jompsEfetuadas = 0;
+		//omp parallel reduction(+:qtdEntrega_jompsEfetuadas)
+		{
+			//omp for ordered
+			for (int inx = 0; inx < listaVeiculos.size(); inx++) {
+
+				int idThread = OMP.getThreadNum();
+				Veiculo veiculo = (Veiculo) listaVeiculos.get(idThread);
+				System.out.println("ID THREAD: " + idThread);
+				System.out.println("REALIZANDO ENTREGA DOS PEDIDO DO VEÍCULO: " + veiculo.getPlaca());
+				for (int index = 0; index < veiculo.getListaPedidos().size(); index++) {
+
+					Pedido pedido = veiculo.getListaPedidos().get(index);
+
+					System.out.println("PEDIDO: " + pedido.getCodigo());
+					for (int i = 0; i < pedido.getListaProdutos().size(); i++) {
+						Produto produto = pedido.getListaProdutos().get(i);
+						System.out.println("EFETUANDO ENTREGA");
+						System.out.println("PRODUTO: " + produto.getCodigo() + " - " + produto.getDescricao());
+						System.out.println("ENTREGA EFETUADA");
+						qtdEntrega_jompsEfetuadas++;
+					}
+				}
+				System.out.println("QUANTIDADE DE ENTREGAS EFETUADAS: " + qtdEntrega_jompsEfetuadas);
+			}
+		}
+	}
+
+}

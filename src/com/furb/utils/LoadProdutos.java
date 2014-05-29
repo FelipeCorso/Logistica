@@ -29,6 +29,9 @@ public class LoadProdutos {
 		return this.getListaProdutos().get((int) (Math.random() * this.getListaProdutos().size()));
 	}
 	public Produto getProdutoSequencial(int cont) {
+		if(cont > this.getListaProdutos().size()){
+			cont = 0;
+		}
 		return this.getListaProdutos().get(cont);
 	}
 
