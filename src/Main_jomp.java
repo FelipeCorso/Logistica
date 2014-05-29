@@ -66,6 +66,7 @@ public class Main_jomp {
 					System.out.println("\nQuantos produtos tera cada pedido?");
 					int nProduto = Integer.parseInt(scanner.next());
 					calcularFrete.execCalcularFrete(nPedido, nProduto);
+					break;
 				case 4:
 					new OpcoesEntrada();
 					break;
