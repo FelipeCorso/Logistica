@@ -13,12 +13,13 @@ public class Entrega {
 	public static void efetuarEntrega(List listaVeiculos) {
 		System.out.println(listaVeiculos.size());
 		OMP.setNumThreads(listaVeiculos.size());
-
+		int inx;
+		
 		int qtdEntregasEfetuadas = 0;
 		//omp parallel reduction(+:qtdEntregasEfetuadas)
 		{
 			//omp for ordered
-			for (int inx = 0; inx < listaVeiculos.size(); inx++) {
+			for (inx = 0; inx < listaVeiculos.size(); inx++) {
 
 				int idThread = OMP.getThreadNum();
 				Veiculo veiculo = (Veiculo) listaVeiculos.get(idThread);

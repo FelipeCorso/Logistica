@@ -15,6 +15,8 @@ import jomp.runtime.OMP;
 
 import com.furb.endereco.RegiaoUtil;
 import com.furb.endereco.Regiao;
+import com.furb.entrega.Entrega_jomp;
+import com.furb.entrega.ui.OpcoesEntrada;
 import com.furb.frete.CalcularFrete;
 import com.furb.pedido.Pedido;
 import com.furb.pedido.PedidoUtil;
@@ -24,7 +26,8 @@ public class Main_jomp {
 
 	private static final String CALCULAR_FROTA_NECESSARIA = "1 - Calcular Frota Necess\u00e1ria";
 	private static final String CRIAR_REGIOES = "2 - Criar Regi\u00f5es";
-	private static final String CALCULAR_FRETE = "3 - Calcular o Frete do Pedido: ";
+	private static final String CALCULAR_FRETE = "3 - Calcular o Frete do Pedido ";
+	private static final String EFETUAR_ENTREGA = "4 - Efetuar entrega ";
 	private static final String ESCOLHA_UMA_OPCAO = "Escolha uma op\u00e7\u00e3o: ";
 	private static Mock mock;
 	private static Scanner scanner;
@@ -32,6 +35,7 @@ public class Main_jomp {
 
 	public static void main(String[] args) {
 		CalcularFrete calcularFrete = new CalcularFrete();
+		Entrega_jomp entrega = new Entrega_jomp();
 		int opcao = 0;
 		boolean sair = false;
 		scanner = new Scanner(System.in);
@@ -41,6 +45,7 @@ public class Main_jomp {
 		System.out.println(CALCULAR_FROTA_NECESSARIA);
 		System.out.println(CRIAR_REGIOES);
 		System.out.println(CALCULAR_FRETE);
+		System.out.println(EFETUAR_ENTREGA);
 		System.out.println("666 - Sair");
 
 		while (!sair) {
@@ -61,7 +66,8 @@ public class Main_jomp {
 					System.out.println("\nQuantos produtos tera cada pedido?");
 					int nProduto = Integer.parseInt(scanner.next());
 					calcularFrete.execCalcularFrete(nPedido, nProduto);
-					
+				case 4:
+					new OpcoesEntrada();
 					break;
 				case 666:
 					sair = true;
@@ -73,6 +79,7 @@ public class Main_jomp {
 				System.out.println(CALCULAR_FROTA_NECESSARIA);
 				System.out.println(CRIAR_REGIOES);
 				System.out.println(CALCULAR_FRETE);
+				System.out.println(EFETUAR_ENTREGA);
 				System.out.println("666 - Sair");
 
 			} catch (NumberFormatException nfe) {

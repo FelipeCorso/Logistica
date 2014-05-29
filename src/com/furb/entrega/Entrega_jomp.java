@@ -14,7 +14,8 @@ public class Entrega_jomp {
 	public static void efetuarEntrega_jomp(List listaVeiculos) {
 		System.out.println(listaVeiculos.size());
 		OMP.setNumThreads(listaVeiculos.size());
-
+		int inx;
+		
 		int qtdEntrega_jompsEfetuadas = 0;
 		int inx;
 
@@ -90,7 +91,7 @@ private static class __omp_Class0 extends jomp.runtime.BusyTask {
 				int idThread = OMP.getThreadNum();
 				Veiculo veiculo = (Veiculo) listaVeiculos.get(idThread);
 				System.out.println("ID THREAD: " + idThread);
-				System.out.println("REALIZANDO ENTREGA DOS PEDIDO DO VE\u00cdCULO: " + veiculo.getPlaca());
+				System.out.println("REALIZANDO ENTREGA DOS PEDIDO DO VE\u00c3?CULO: " + veiculo.getPlaca());
 				for (int index = 0; index < veiculo.getListaPedidos().size(); index++) {
 
 					Pedido pedido = veiculo.getListaPedidos().get(index);
