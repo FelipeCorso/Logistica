@@ -1,5 +1,6 @@
 package com.furb.veiculo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,25 +9,32 @@ import com.furb.transportadora.deposito.Deposito;
 import com.furb.veiculo.combustivel.EnCombustivel;
 import com.furb.veiculo.motorista.Motorista;
 import com.furb.veiculo.situacao.EnSituacao;
+import com.furb.veiculo.tipo.EnTipoVeiculo;
 
-public abstract class VeiculoAbstract implements IVeiculo {
+public class Veiculo implements IVeiculo, Serializable {
 
+	private static final long serialVersionUID = 6886129015866866033L;
 	private Motorista motorista;
 	private Deposito deposito;
 	private int codigo;
 	private double consumo;
 	private double capacidade;
 	private double capacidadeM3;
+	private EnTipoVeiculo enTipoVeiculo;
 	private EnCombustivel enCombustivel;
 	private EnSituacao enSituacao;
 	private List<Pedido> listaPedidos;
 	private String placa;
 
-	public VeiculoAbstract(Motorista motorista, Deposito deposito, EnCombustivel enCombustivel, EnSituacao enSituacao) {
+	public Veiculo(Motorista motorista, Deposito deposito, EnTipoVeiculo enTipoVeiculo, EnCombustivel enCombustivel, EnSituacao enSituacao) {
 		this.motorista = motorista;
 		this.deposito = deposito;
+		this.enTipoVeiculo = enTipoVeiculo;
 		this.enCombustivel = enCombustivel;
 		this.enSituacao = enSituacao;
+	}
+
+	public Veiculo() {
 	}
 
 	@Override
@@ -44,6 +52,10 @@ public abstract class VeiculoAbstract implements IVeiculo {
 		return this.deposito;
 	}
 
+	/**
+	 * Utilizar o método <code>getPlaca()</code>
+	 */
+	@Deprecated
 	@Override
 	public int getCodigo() {
 		return this.codigo;
@@ -52,6 +64,14 @@ public abstract class VeiculoAbstract implements IVeiculo {
 	@Override
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
+	}
+
+	public EnTipoVeiculo getEnTipoVeiculo() {
+		return enTipoVeiculo;
+	}
+
+	public void setEnTipoVeiculo(EnTipoVeiculo enTipoVeiculo) {
+		this.enTipoVeiculo = enTipoVeiculo;
 	}
 
 	@Override

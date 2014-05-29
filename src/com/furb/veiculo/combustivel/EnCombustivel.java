@@ -1,7 +1,7 @@
 package com.furb.veiculo.combustivel;
 
 public enum EnCombustivel {
-	DIESEL("Diesel", 0.0), GASOLINA("Gasolina", 0.0), ETANOL("Etanol", 0.0), GNV("Gás Natural Veicular", 0.0);
+	DIESEL("Diesel", 0.0), GASOLINA("Gasolina", 0.0), ETANOL("Etanol", 0.0), GNV("GÃ¡s Natural Veicular", 0.0);
 
 	private String descricao;
 	private double preco;

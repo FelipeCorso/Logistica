@@ -1,9 +1,16 @@
 package com.furb.veiculo.motorista;
 
-public class Motorista {
+import java.io.Serializable;
+
+public class Motorista implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7023933202231482985L;
 	private int codigo;
 	private String nome;
 	private String categorias;
+	private String rg;
 
 	public int getCodigo() {
 		return codigo;
@@ -27,5 +34,18 @@ public class Motorista {
 
 	public void setCategorias(String categorias) {
 		this.categorias = categorias;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
+	@Override
+	public String toString() {
+		return this.getNome();
 	}
 }
