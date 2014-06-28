@@ -50,7 +50,7 @@ private static class __omp_Class0 extends jomp.runtime.BusyTask {
   // variables to hold results of reduction
   int _rd_qtdEntrega_jompsEfetuadas;
 
-  public void go(int __omp_me) throws Throwable {
+public void go(int __omp_me) throws Throwable {
   // firstprivate variables + init
   // private variables
   // reduction variables, init to default
